@@ -36,3 +36,6 @@ install:
 test_script:
   - python .ci/last_conan_version.py
   - tox
+
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
